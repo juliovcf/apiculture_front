@@ -11,5 +11,7 @@ export interface User {
   phone?: string;
   status: Status;
   role: Role;
+  createdAt?: Date;
+  updatedAt?: Date;
 
 }
