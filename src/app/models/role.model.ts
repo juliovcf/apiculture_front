@@ -1,4 +1,4 @@
-export interface Nationality {
+export interface Role {
   id: number;
   name: string;
 }
