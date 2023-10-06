@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { API_BASE_URL } from '../config/apiConfig';
+import { Client } from '../models/client.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +15,26 @@ export class ClientService {
     this.url = `${API_BASE_URL}/clients`;
   }
 
-  get() {
-    return this.http.get(this.url);
+  get(): Observable<Client[]> {
+    return this.http.get<Client[]>(this.url);
   }
 
-  create(client: any) {
-    return this.http.post(this.url, client);
+  getById(id: number): Observable<Client> {
+    const clientUrl = `${this.url}/${id}`;
+    return this.http.get<Client>(clientUrl);
   }
 
-  update(id: number, client: any) {
-    return this.http.put(`${this.url}${id}`, client);
+  create(client: Client): Observable<any> {
+    return this.http.post<any>(this.url, client);
   }
 
-  delete(id: number) {
-    return this.http.delete(`${this.url}${id}`);
+  update(id: number, client: Client): Observable<any> {
+    const clientUrl = `${this.url}/${id}`;
+    return this.http.put<any>(clientUrl, client);
+  }
+
+  delete(id: number): Observable<any> {
+    const clientUrl = `${this.url}/${id}`;
+    return this.http.delete<any>(clientUrl);
   }
 }

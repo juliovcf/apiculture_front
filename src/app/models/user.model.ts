@@ -2,6 +2,7 @@ import { Role } from "./role.model";
 import { Status } from "./status.model";
 
 export interface User {
+
   id: number;
   name: string;
   surname: string;
