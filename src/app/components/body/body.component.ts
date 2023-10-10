@@ -9,18 +9,21 @@ import { ClientService } from '../../services/client.service';
   styleUrls: ['./body.component.css']
 })
 export class BodyComponent implements OnInit {
+
   clients: Client[] = [];
 
-  constructor(private clientService: ClientService) { }
+  constructor(private clientService: ClientService) {
+
+  }
 
   ngOnInit() {
+    this.getClients();
+  }
+
+  getClients() {
     this.clientService.get().subscribe(
-      (clients: Client[]) => {
-        this.clients = clients;
-      },
-      (error: any) => {
-        console.error(error);
-      }
+      (data: Client[]) => this.clients = data,
     );
   }
+
 }
