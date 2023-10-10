@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from 'src/app/models/client.model';
+import { ResponseObject } from 'src/app/models/responseObject.model';
+import Utils from 'src/app/utils/parser.utils';
 import { ClientService } from '../../services/client.service';
 
 @Component({
@@ -8,19 +10,21 @@ import { ClientService } from '../../services/client.service';
   styleUrls: ['./body.component.css'],
 })
 export class BodyComponent implements OnInit {
-  clients: Client[] = [];
+  objectList: Client[] = [];
 
-  constructor(private clientService: ClientService) {}
+  constructor(private service: ClientService) {
+
+  }
 
   ngOnInit() {
     this.getClients();
   }
 
   getClients() {
-    this.clientService.get().subscribe({
-      next: (clients: Client[]) => (this.clients = clients),
-      error: (error: any) => console.error(error),
-      complete: () => console.info('complete'),
+    this.service.get().subscribe({
+      next: (responseObject: ResponseObject) => this.objectList = Utils.parseArrayData(responseObject),
+      error: (error: any) => console.error(error)
     });
   }
+
 }

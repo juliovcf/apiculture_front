@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API_BASE_URL } from '../config/apiConfig';
 import { Client } from '../models/client.model';
+import { ResponseObject } from '../models/responseObject.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,26 +16,24 @@ export class ClientService {
     this.url = `${API_BASE_URL}/clients`;
   }
 
-  get(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.url);
+  get(): Observable<ResponseObject> {
+    return this.http.get<ResponseObject>(this.url);
   }
 
-  getById(id: number): Observable<Client> {
-    const clientUrl = `${this.url}/${id}`;
-    return this.http.get<Client>(clientUrl);
+  getById(id: number): Observable<ResponseObject> {
+    return this.http.get<ResponseObject>(`${this.url}/${id}`);
   }
 
-  create(client: Client): Observable<any> {
-    return this.http.post<any>(this.url, client);
+  create(client: Client): Observable<ResponseObject> {
+    return this.http.post<ResponseObject>(this.url, client);
   }
 
-  update(id: number, client: Client): Observable<any> {
-    const clientUrl = `${this.url}/${id}`;
-    return this.http.put<any>(clientUrl, client);
+  update(id: number, client: Client): Observable<ResponseObject> {
+    return this.http.put<ResponseObject>(`${this.url}/${id}`, client);
   }
 
-  delete(id: number): Observable<any> {
-    const clientUrl = `${this.url}/${id}`;
-    return this.http.delete<any>(clientUrl);
+  delete(id: number): Observable<ResponseObject> {
+    return this.http.delete<ResponseObject>(`${this.url}/${id}`);
   }
+
 }
