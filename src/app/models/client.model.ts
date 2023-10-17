@@ -8,7 +8,7 @@ export interface Client {
   name: string;
   surname: string;
   dni?: string;
-  address?: string;
+  adress?: string;
   postalCode?: string;
   location?: string;
   rega?: string;
@@ -21,6 +21,6 @@ export interface Client {
   nationality?: Nationality;
   status?: Status;
   user?: User;
-  createdAt?: string; // Cambia a string o Date según el formato de fecha en tu API
-  updatedAt?: string; // Cambia a string o Date según el formato de fecha en tu API
+  createdAt?: string;
+  updatedAt?: string;
 }

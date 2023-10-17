@@ -1,18 +1,26 @@
 <table>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
+      <th>Colmenas</th>
+      <th>DNI</th>
+      <th>Nombre</th>
       <th>Email</th>
-      <th>Phone</th>
+      <th>Móvil</th>
+      <th>REGA</th>
+      <th>Localidad</th>
+      <th>Dirección</th>
+
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let object of objectList">
-      <td>{{ object.id }}</td>
+      <td>{{ object.beehives }}</td>
+      <td>{{ object.dni }}</td>
       <td>{{ object.name }}</td>
       <td>{{ object.email }}</td>
       <td>{{ object.phone }}</td>
-    </tr>
+      <td>{{ object.rega }}</td>
+      <td>{{ object.location }}</td>
+      <td>{{ object.adress }}</td>
   </tbody>
 </table>
