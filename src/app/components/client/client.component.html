@@ -1,12 +1,15 @@
 <table>
   <thead>
     <tr>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>REGA</th>
       <th>Colmenas</th>
       <th>DNI</th>
-      <th>Nombre</th>
+      <th>Cuenta</th>
       <th>Email</th>
       <th>Móvil</th>
-      <th>REGA</th>
+      <th>Código Postal</th>
       <th>Localidad</th>
       <th>Dirección</th>
 
@@ -14,12 +17,15 @@
   </thead>
   <tbody>
     <tr *ngFor="let object of objectList">
+      <td>{{ object.name }}</td>
+      <td>{{ object.surname }}</td>
+      <td>{{ object.rega }}</td>
       <td>{{ object.beehives }}</td>
       <td>{{ object.dni }}</td>
-      <td>{{ object.name }}</td>
+      <td>{{ object.account }}</td>
       <td>{{ object.email }}</td>
       <td>{{ object.phone }}</td>
-      <td>{{ object.rega }}</td>
+      <td>{{ object.postalCode }}</td>
       <td>{{ object.location }}</td>
       <td>{{ object.adress }}</td>
   </tbody>

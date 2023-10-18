@@ -13,7 +13,7 @@ export interface Client {
   location?: string;
   rega?: string;
   beehives: number;
-  acount?: string;
+  account?: string;
   insuranceAmount?: number;
   phone?: string;
   email?: string;

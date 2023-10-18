@@ -1,0 +1,15 @@
+.button {
+  margin-right: 10px;
+  /* Esto agrega 10px de margen a la derecha de cada botón */
+}
+
+.jumbotron {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+}
+
+.fa {
+  font-size: 0px;
+  padding-bottom: 500px;
+}
