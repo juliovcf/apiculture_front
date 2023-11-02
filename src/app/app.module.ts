@@ -8,6 +8,7 @@ import { BodyComponent } from './components/body/body.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ClientComponent } from './components/client/client.component';
+import { BodyTableComponent } from './components/body-table/body-table.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ClientComponent } from './components/client/client.component';
     MenuComponent,
     NavbarComponent,
     BodyComponent,
-    ClientComponent
+    ClientComponent,
+    BodyTableComponent
   ],
   imports: [
     BrowserModule,
