@@ -17,10 +17,10 @@ export class TransactionComponent {
   }
 
   ngOnInit() {
-    this.getClients();
+    this.getTransactions();
   }
 
-  getClients() {
+  getTransactions() {
     this.service.get().subscribe({
       next: (responseObject: ResponseObject) => this.objectList = Utils.parseArrayData(responseObject),
       error: (error: any) => console.error(error)
