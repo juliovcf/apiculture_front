@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BodyComponent } from './components/body/body.component';
+import { ClientComponent } from './components/client/client.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ClientComponent } from './components/client/client.component';
-import { BodyTableComponent } from './components/body-table/body-table.component';
+import { TransactionComponent } from './components/transactions/transaction.component';
+import { DetalleModalComponent } from './detalle-modal/detalle-modal.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { BodyTableComponent } from './components/body-table/body-table.component
     NavbarComponent,
     BodyComponent,
     ClientComponent,
-    BodyTableComponent
+    DetalleModalComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

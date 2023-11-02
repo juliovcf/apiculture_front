@@ -1,0 +1,30 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Cantidad (€)</th>
+      <th>Tipo de Transacción</th>
+      <th>Tipo de Pago</th>
+      <th>Cliente</th>
+      <th>Usuario</th>
+      <th>Descripción</th>
+      <th>Fecha de Creación</th>
+      <th>Fecha de Actualización</th>
+      <th>Completada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let object of objectList">
+      <td>{{ object.id }}</td>
+      <td>{{ object.amount }}</td>
+      <td>{{ object.transactionType }}</td>
+      <td>{{ object.paymentType }}</td>
+      <td>{{ object.client?.name }}</td>
+      <td>{{ object.user?.username }}</td>
+      <td>{{ object.description }}</td>
+      <td>{{ object.createdAt | date:'short' }}</td>
+      <td>{{ object.updatedAt | date:'short' }}</td>
+      <td>{{ object.completed ? 'Sí' : 'No' }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,25 @@
+/* Estilo para el encabezado */
+table thead {
+  background-color: #FFD700;
+  /* Color dorado */
+  border-bottom: 2px solid #ddd;
+}
+
+/* Estilo para las celdas */
+table th,
+table td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Alternar colores de filas */
+table tr:nth-child(odd) {
+  background-color: #f9f9f9;
+  /* Gris claro */
+}
+
+/* Efecto hover */
+table tr:hover {
+  background-color: #f5f5f5;
+  /* Gris aún más claro */
+}

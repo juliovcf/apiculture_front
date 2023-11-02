@@ -7,8 +7,8 @@ export interface Transaction {
   amount: number;
   transactionType: string;
   paymentType: string;
-  client: Client;
-  user: User;
+  client?: Client;
+  user?: User;
   description?: string;
   createdAt?: Date;
   updatedAt?: Date;
