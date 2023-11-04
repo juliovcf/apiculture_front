@@ -5,44 +5,81 @@
   </button>
 </div>
 <div class="modal-body">
-  <form>
-    <div class="form-group">
-      <label for="name">Nombre</label>
-      <input type="text" class="form-control" id="name" placeholder="Ingrese nombre del socio">
-    </div>
-    <div class="form-group">
-      <label for="surname">Apellidos</label>
-      <input type="text" class="form-control" id="surname" placeholder="Ingrese apellidos del socio">
-    </div>
-    <div class="form-group">
-      <label for="dni">DNI</label>
-      <input type="text" class="form-control" id="dni" placeholder="Ingrese DNI">
-    </div>
-    <div class="form-group">
-      <label for="adress">Dirección</label>
-      <input type="text" class="form-control" id="adress" placeholder="Ingrese dirección">
-    </div>
-    <!-- ... Añade otros campos aquí ... -->
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Ingrese correo electrónico">
-    </div>
-    <div class="form-group">
-      <label for="nationality">Nacionalidad</label>
-      <select class="form-control" id="nationality">
-        <option *ngFor="let n of nationalities">{{ n.name }}</option>
-      </select>
-    </div>
+  <form #socioForm="ngForm">
+    <div class="row">
+      <!-- Columna izquierda -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" id="name" placeholder="Ingrese nombre del socio"
+            [(ngModel)]="socio.name" name="name" required>
+        </div>
+        <!-- Repite para otros campos -->
+        <div class="form-group">
+          <label for="dni">DNI</label>
+          <input type="text" class="form-control" id="dni" placeholder="Ingrese DNI" [(ngModel)]="socio.dni" name="dni">
+        </div>
+        <div class="form-group">
+          <label for="adress">Dirección</label>
+          <input type="text" class="form-control" id="adress" placeholder="Ingrese dirección" [(ngModel)]="socio.adress"
+            name="adress">
+        </div>
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input type="text" class="form-control" id="phone" placeholder="Ingrese teléfono" [(ngModel)]="socio.phone"
+            name="phone">
+        </div>
+        <div class="form-group">
+          <label for="rega">Rega</label>
+          <input type="text" class="form-control" id="rega" placeholder="Ingrese Rega" [(ngModel)]="socio.rega"
+            name="rega">
+        </div>
+        <div class="form-group">
+          <label for="beehives">Colmenas</label>
+          <input type="number" class="form-control" id="beehives" placeholder="Nº Colmenas" [(ngModel)]="socio.beehives"
+            name="beehives">
+        </div>
+      </div>
 
-    <div class="form-group">
-      <label for="status">Estado</label>
-      <select class="form-control" id="status">
-        <option *ngFor="let s of status">{{ s.name }}</option>
-      </select>
+      <!-- Columna derecha -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="surname">Apellidos</label>
+          <input type="text" class="form-control" id="surname" placeholder="Ingrese apellidos del socio"
+            [(ngModel)]="socio.surname" name="surname" required>
+        </div>
+        <div class="form-group">
+          <label for="location">Población</label>
+          <input type="text" class="form-control" id="location" placeholder="Ingrese población"
+            [(ngModel)]="socio.location" name="location">
+        </div>
+        <div class="form-group">
+          <label for="postalCode">Codigo postal</label>
+          <input type="text" class="form-control" id="postalCode" placeholder="Ingrese CP"
+            [(ngModel)]="socio.postalCode" name="postalCode">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Ingrese correo electrónico"
+            [(ngModel)]="socio.email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="account">Nº Cuenta</label>
+          <input type="text" class="form-control" id="account" placeholder="Ingrese Nº Cuenta"
+            [(ngModel)]="socio.account" name="account">
+        </div>
+        <div class="form-group">
+          <label for="nationality">Nacionalidad</label>
+          <select class="form-control" id="nationality" [(ngModel)]="socio.nationality.id" name="nationality">
+            <option *ngFor="let n of nationalities" [value]="n.id">{{ n.name }}</option>
+          </select>
+        </div>
+      </div>
     </div>
   </form>
 </div>
+
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel')">Cancelar</button>
-  <button type="button" class="btn btn-primary" (click)="crearUsuario()">Guardar</button>
+  <button type="button" class="btn btn-primary" (click)="guardarSocio()">Guardar</button>
 </div>
