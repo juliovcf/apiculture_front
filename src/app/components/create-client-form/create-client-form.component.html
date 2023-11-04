@@ -28,20 +28,16 @@
       <input type="email" class="form-control" id="email" placeholder="Ingrese correo electrónico">
     </div>
     <div class="form-group">
-      <label for="note">Nota</label>
-      <textarea class="form-control" id="note" rows="3" placeholder="Ingrese una nota"></textarea>
-    </div>
-    <div class="form-group">
       <label for="nationality">Nacionalidad</label>
       <select class="form-control" id="nationality">
-        <option *ngFor="let n of nationalities">{{ n }}</option>
+        <option *ngFor="let n of nationalities">{{ n.name }}</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="status">Estado</label>
       <select class="form-control" id="status">
-        <!-- Opciones para estado aquí -->
+        <option *ngFor="let s of status">{{ s.name }}</option>
       </select>
     </div>
   </form>

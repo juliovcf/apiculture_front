@@ -17,7 +17,6 @@ export interface Client {
   insuranceAmount?: number;
   phone?: string;
   email?: string;
-  note?: string;
   nationality?: Nationality;
   status?: Status;
   user?: User;
