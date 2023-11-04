@@ -5,7 +5,9 @@
       <th>Cantidad (€)</th>
       <th>Tipo de Transacción</th>
       <th>Tipo de Pago</th>
-      <th>Cliente</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>DNI</th>
       <th>Usuario</th>
       <th>Descripción</th>
       <th>Fecha de Creación</th>
@@ -20,6 +22,8 @@
       <td>{{ object.transactionType }}</td>
       <td>{{ object.paymentType }}</td>
       <td>{{ object.client?.name }}</td>
+      <td>{{ object.client?.surname }}</td>
+      <td>{{ object.client?.dni }}</td>
       <td>{{ object.user?.username }}</td>
       <td>{{ object.description }}</td>
       <td>{{ object.createdAt | date:'short' }}</td>

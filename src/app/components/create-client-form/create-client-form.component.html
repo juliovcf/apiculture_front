@@ -1,0 +1,52 @@
+<div class="modal-header">
+  <h4 class="modal-title">Crear Nuevo Socio</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="name" placeholder="Ingrese nombre del socio">
+    </div>
+    <div class="form-group">
+      <label for="surname">Apellidos</label>
+      <input type="text" class="form-control" id="surname" placeholder="Ingrese apellidos del socio">
+    </div>
+    <div class="form-group">
+      <label for="dni">DNI</label>
+      <input type="text" class="form-control" id="dni" placeholder="Ingrese DNI">
+    </div>
+    <div class="form-group">
+      <label for="adress">Dirección</label>
+      <input type="text" class="form-control" id="adress" placeholder="Ingrese dirección">
+    </div>
+    <!-- ... Añade otros campos aquí ... -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Ingrese correo electrónico">
+    </div>
+    <div class="form-group">
+      <label for="note">Nota</label>
+      <textarea class="form-control" id="note" rows="3" placeholder="Ingrese una nota"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="nationality">Nacionalidad</label>
+      <select class="form-control" id="nationality">
+        <option *ngFor="let n of nationalities">{{ n }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Estado</label>
+      <select class="form-control" id="status">
+        <!-- Opciones para estado aquí -->
+      </select>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel')">Cancelar</button>
+  <button type="button" class="btn btn-primary" (click)="crearUsuario()">Guardar</button>
+</div>

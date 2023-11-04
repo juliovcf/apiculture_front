@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BodyComponent } from './components/body/body.component';
 import { ClientComponent } from './components/client/client.component';
+import { CreateClientFormComponent } from './components/create-client-form/create-client-form.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TransactionComponent } from './components/transactions/transaction.component';
@@ -20,7 +21,8 @@ import { DetalleModalComponent } from './detalle-modal/detalle-modal.component';
     BodyComponent,
     ClientComponent,
     DetalleModalComponent,
-    TransactionComponent
+    TransactionComponent,
+    CreateClientFormComponent
   ],
   imports: [
     BrowserModule,
