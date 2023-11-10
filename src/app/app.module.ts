@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TransactionComponent } from './components/transactions/transaction.component';
 import { DetalleModalComponent } from './detalle-modal/detalle-modal.component';
 import { CreateTransactionFormComponent } from './components/create-transaction-form/create-transaction-form.component';
+import { ClientDetailComponent } from './components/client-detail/client-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CreateTransactionFormComponent } from './components/create-transaction-
     DetalleModalComponent,
     TransactionComponent,
     CreateClientFormComponent,
-    CreateTransactionFormComponent
+    CreateTransactionFormComponent,
+    ClientDetailComponent
   ],
   imports: [
     BrowserModule,
