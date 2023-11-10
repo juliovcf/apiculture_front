@@ -1,0 +1,32 @@
+<div *ngIf="item" class="container">
+  <h2>Detalle del Objeto</h2>
+  <div class="row">
+    <!-- Columna 1 -->
+    <div class="col-md-4">
+      <div *ngFor="let key of objectKeys(item) | slice:0:objectKeys(item).length / 3">
+        <strong>{{ key }}:</strong> {{ item[key] }}
+      </div>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="col-md-4">
+      <div *ngFor="let key of objectKeys(item) | slice:objectKeys(item).length / 3:2 * objectKeys(item).length / 3">
+        <strong>{{ key }}:</strong> {{ item[key] }}
+      </div>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="col-md-4">
+      <div *ngFor="let key of objectKeys(item) | slice:2 * objectKeys(item).length / 3">
+        <strong>{{ key }}:</strong> {{ item[key] }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary" (click)="editItem()">Editar</button>
+      <button class="btn btn-danger" (click)="deleteItem()">Eliminar</button>
+    </div>
+  </div>
+</div>

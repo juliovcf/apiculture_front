@@ -24,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let object of objectList">
+          <tr *ngFor="let object of objectList" (click)="verDetalle(object.id)">
             <td>{{ object.name }}</td>
             <td>{{ object.surname }}</td>
             <td>{{ object.rega }}</td>

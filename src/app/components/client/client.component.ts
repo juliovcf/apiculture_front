@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Client } from 'src/app/models/client.model';
 import { ResponseObject } from 'src/app/models/responseObject.model';
@@ -16,7 +17,7 @@ export class ClientComponent implements OnInit {
 
   objectList: Client[] = [];
 
-  constructor(private service: ClientService, private modalService: NgbModal) {
+  constructor(private service: ClientService, private modalService: NgbModal, private router: Router) {
 
   }
 
@@ -37,6 +38,10 @@ export class ClientComponent implements OnInit {
 
   abrirFormularioCreacion() {
     this.modalService.open(CreateClientFormComponent);
+  }
+
+  verDetalle(id: number) {
+    this.router.navigate(['/clients', id]);
   }
 
 }

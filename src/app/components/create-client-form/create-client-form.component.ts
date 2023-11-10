@@ -17,6 +17,7 @@ import Utils from 'src/app/utils/parser.utils';
 export class CreateClientFormComponent {
 
   socio: Client = {
+    id: 0,
     name: '',
     surname: '',
     nationality: { id: 173, name: 'Español' }

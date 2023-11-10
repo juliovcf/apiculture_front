@@ -4,7 +4,7 @@ import { User } from "./user.model";
 
 
 export interface Client {
-  id?: number;
+  id: number;
   name: string;
   surname: string;
   dni?: string;
