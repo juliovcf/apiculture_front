@@ -9,13 +9,13 @@ import { AppComponent } from './app.component';
 import { BodyComponent } from './components/body/body.component';
 import { ClientComponent } from './components/client/client.component';
 import { CreateClientFormComponent } from './components/create-client-form/create-client-form.component';
+import { CreateTransactionFormComponent } from './components/create-transaction-form/create-transaction-form.component';
+import { GenericDetailComponent } from './components/generic-detail/generic-detail.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TransactionComponent } from './components/transactions/transaction.component';
 import { DetalleModalComponent } from './detalle-modal/detalle-modal.component';
-import { CreateTransactionFormComponent } from './components/create-transaction-form/create-transaction-form.component';
 import { ClientDetailComponent } from './components/client-detail/client-detail.component';
-import { GenericDetailComponent } from './generic-detail/generic-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +28,8 @@ import { GenericDetailComponent } from './generic-detail/generic-detail.componen
     TransactionComponent,
     CreateClientFormComponent,
     CreateTransactionFormComponent,
-    ClientDetailComponent,
-    GenericDetailComponent
+    GenericDetailComponent,
+    ClientDetailComponent
   ],
   imports: [
     BrowserModule,

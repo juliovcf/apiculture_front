@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Client } from 'src/app/models/client.model';
 import { ResponseObject } from 'src/app/models/responseObject.model';
@@ -10,22 +10,27 @@ import { ClientService } from 'src/app/services/client.service';
   styleUrls: ['./client-detail.component.css']
 })
 export class ClientDetailComponent implements OnInit {
-  client!: Client;
+  object!: Client;
+  @ViewChild('clientDetailTemplate', { static: true }) clientDetailTemplate!: TemplateRef<any>;
 
-  constructor(
-    private route: ActivatedRoute,
-    private service: ClientService
-  ) { }
+  constructor(private service: ClientService, private route: ActivatedRoute) {
 
-  ngOnInit() {
-    const objectId = this.route.snapshot.paramMap.get('id');
-    if (objectId) {
-      this.service.getById(+objectId).subscribe({
-        next: (responseObject: ResponseObject) => {
-          this.client = responseObject.data as Client; // Cast la propiedad 'data' a tipo Client
-        },
-        error: (error: any) => console.error(error)
-      });
-    }
+  }
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.getClient(parseInt(id));
+      }
+    });
+  }
+
+  getClient(id: number) {
+    console.log('getClient()');
+    this.service.getById(id).subscribe({
+      next: (responseObject: ResponseObject) => this.object = responseObject.data as Client,
+      error: (error: any) => console.error(error)
+    });
   }
 }

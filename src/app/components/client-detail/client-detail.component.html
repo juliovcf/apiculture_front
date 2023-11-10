@@ -1,0 +1,16 @@
+<h1>Detalle del Cliente</h1>
+<app-generic-detail [dynamicContent]="clientDetailTemplate">
+  <span slot="title">Detalle del Cliente</span>
+
+  <ng-template #clientDetailTemplate>
+    <p>Nombre: {{ object.name }}</p>
+    <p>Apellidos: {{ object.surname }}</p>
+    <!-- Más campos... -->
+  </ng-template>
+
+  <div slot="action-buttons">
+    <!-- Botones de acción -->
+    <button class="btn btn-primary">Editar</button>
+    <button class="btn btn-secondary">Cerrar</button>
+  </div>
+</app-generic-detail>

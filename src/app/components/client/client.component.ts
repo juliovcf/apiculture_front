@@ -30,6 +30,7 @@ export class ClientComponent implements OnInit {
   }
 
   getClients() {
+    console.log('getClients()');
     this.service.get().subscribe({
       next: (responseObject: ResponseObject) => this.objectList = Utils.parseArrayData(responseObject),
       error: (error: any) => console.error(error)
