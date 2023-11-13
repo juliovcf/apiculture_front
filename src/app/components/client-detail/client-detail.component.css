@@ -1,0 +1,27 @@
+.detail-view p {
+  padding: 5px;
+  background-color: #f8f9fa;
+  /* un gris claro de Bootstrap */
+  border-radius: 5px;
+}
+
+.detail-view p.text-muted {
+  background-color: transparent;
+}
+
+/* Estilos para cuando los campos están desactivados */
+.detail-view form input:disabled {
+  background-color: #e9ecef;
+  /* otro gris de Bootstrap */
+  border: none;
+  outline: none;
+}
+
+/* Opcionalmente, oculta los formularios cuando no estén en modo de edición */
+.detail-view form {
+  display: none;
+}
+
+.detail-view form.edit-mode {
+  display: block;
+}

@@ -1,16 +1,100 @@
-<h1>Detalle del Cliente</h1>
 <app-generic-detail [dynamicContent]="clientDetailTemplate">
-  <span slot="title">Detalle del Cliente</span>
+  <span slot="title">
+    <h2>{{ object.name }} {{ object.surname }} </h2>
+  </span>
 
   <ng-template #clientDetailTemplate>
-    <p>Nombre: {{ object.name }}</p>
-    <p>Apellidos: {{ object.surname }}</p>
-    <!-- Más campos... -->
+    <div *ngIf="!editMode">
+      <p>Nombre: {{ object.name }}</p>
+      <p>Apellidos: {{ object.surname }}</p>
+      <p>DNI: {{ object.dni }}</p>
+      <p>Población: {{ object.location }}</p>
+      <p>Código postal: {{ object.postalCode }}</p>
+      <p>Dirección: {{ object.adress }}</p>
+      <p>Teléfono: {{ object.phone }}</p>
+      <p>Email: {{ object.email }}</p>
+      <p>Status: {{ object.status?.name }}</p>
+      <p>Colmenas: {{ object.beehives }}</p>
+      <p>Rega: {{ object.rega }}</p>
+      <p>Nº Cuenta: {{ object.account }}</p>
+      <p>Nacionalidad: {{ object.nationality.name }}</p>
+    </div>
+
+    <form *ngIf="editMode" #socioForm="ngForm" class="row">
+      <!-- Columna izquierda -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="object.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="dni">DNI</label>
+          <input type="text" class="form-control" id="dni" [(ngModel)]="object.dni" name="dni">
+        </div>
+        <div class="form-group">
+          <label for="adress">Dirección</label>
+          <input type="text" class="form-control" id="adress" [(ngModel)]="object.adress" name="adress">
+        </div>
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input type="text" class="form-control" id="phone" [(ngModel)]="object.phone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="rega">Rega</label>
+          <input type="text" class="form-control" id="rega" [(ngModel)]="object.rega" name="rega">
+        </div>
+        <div class="form-group">
+          <label for="beehives">Colmenas</label>
+          <input type="number" class="form-control" id="beehives" [(ngModel)]="object.beehives" name="beehives">
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select class="form-control" id="status" [(ngModel)]="object.status" name="status">
+            <option *ngFor="let s of status" [value]="s.id" [ngValue]="object.status?.name">{{ s.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="surname">Apellidos</label>
+          <input type="text" class="form-control" id="surname" [(ngModel)]="object.surname" name="surname" required>
+        </div>
+        <div class="form-group">
+          <label for="location">Población</label>
+          <input type="text" class="form-control" id="location" [(ngModel)]="object.location" name="location">
+        </div>
+        <div class="form-group">
+          <label for="postalCode">Codigo postal</label>
+          <input type="text" class="form-control" id="postalCode" [(ngModel)]="object.postalCode" name="postalCode">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="object.email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="account">Nº Cuenta</label>
+          <input type="text" class="form-control" id="account" [(ngModel)]="object.account" name="account">
+        </div>
+        <div class="form-group">
+          <label for="nationality">Nacionalidad</label>
+          <select class="form-control" id="nationality" [(ngModel)]="object.nationality" name="nationality">
+            <option *ngFor="let n of nationalities" [value]="n.id" [ngValue]="object.nationality.name">{{
+              n.name }}</option>
+          </select>
+        </div>
+      </div>
+    </form>
   </ng-template>
 
   <div slot="action-buttons">
     <!-- Botones de acción -->
-    <button class="btn btn-primary">Editar</button>
-    <button class="btn btn-secondary">Cerrar</button>
+    <button class="btn btn-primary" (click)="toggleEditMode()">
+      {{ editMode ? 'Guardar' : 'Editar' }}
+    </button>
+    <button class="btn btn-secondary" (click)="closeDetails()">Cerrar</button>
   </div>
+
 </app-generic-detail>
